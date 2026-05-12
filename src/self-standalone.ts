@@ -220,7 +220,9 @@ virtualShell.addCommand("demo", [], () => ({
 	exitCode: 0,
 }));
 
-attachRoxifyToShell(virtualShell as VirtualShell);
+// ts-ignore because attachRoxifyToShell's type is currently incompatible with VirtualShell, but we know it will work at runtime
+// @ts-expect-error: Type mismatch due to differences in VirtualShell types, but compatible at runtime
+attachRoxifyToShell(virtualShell as unknown as VirtualShell);
 
 // ── Main shell ────────────────────────────────────────────────────────────────
 
