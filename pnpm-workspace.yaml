@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - cpu-features
+  - esbuild
+  - roxify
+  - ssh2
+  - typescript-virtual-container
