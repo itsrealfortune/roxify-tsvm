@@ -51,7 +51,7 @@
 		"typescript": "^6.0.3"
 	},
 	"dependencies": {
-		"roxify": "^1.15.2",
-		"typescript-virtual-container": "^1.5.1"
+		"roxify": "^1.15.3",
+		"typescript-virtual-container": "^1.5.3"
 	}
 }
