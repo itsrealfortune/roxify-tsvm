@@ -11,13 +11,23 @@ if [[ -n "$(git status --porcelain)" ]]; then
   exit 1
 fi
 
-VERSION="$(node -p "require('./package.json').version")"
+VERSION="$(bun -e "console.log(require('./package.json').version)")"
 TAG="v${VERSION}"
 
 if [[ -z "${VERSION}" ]]; then
   echo "Error: package.json version is empty."
   exit 1
 fi
+
+# Build dist before publishing
+echo "Building dist..."
+bun run build
+
+# Show what will be published
+echo ""
+echo "Files that will be published to npm:"
+npm pack --dry-run 2>&1 | grep -E "^npm notice|Tarball" || true
+echo ""
 
 git fetch --tags --quiet
 
