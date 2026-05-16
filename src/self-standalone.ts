@@ -166,7 +166,8 @@ virtualShell.addCommand("demo", [], () => ({
 
 
 // ts-ignore because attachRoxifyToShell's type is currently incompatible with VirtualShell, but we know it will work at runtime
-attachRoxifyToShell(virtualShell);
+// @ts-expect-error: Type mismatch due to differences in VirtualShell types, but compatible at runtime
+attachRoxifyToShell(virtualShell as unknown as VirtualShell);
 
 
 // ── Main shell ────────────────────────────────────────────────────────────────
@@ -390,7 +391,8 @@ async function runReadlineShell(): Promise<void> {
 			let promptText = challenge.prompt;
 			while (true) {
 				const typed = await askHiddenQuestion(rl, promptText);
-				const step = await challenge.onPassword(typed, virtualShell);
+				// @ts-expect-error: Type mismatch due to differences in VirtualShell types, but compatible at runtime
+				const step = await challenge.onPassword(typed, virtualShell as unknown as VirtualShell);
 				if (step.result === null) {
 					promptText = step.nextPrompt ?? promptText;
 					continue;
