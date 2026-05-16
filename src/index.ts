@@ -59,8 +59,8 @@ Run "npx rox help" for this message.
 		// args[2] can be a flag like --sound or --lossy-resilient
 		if (args[1]) {
 			const file = args[1];
-			const path = cwd === "/" ? file : `${cwd}/${file}`;
-			const buffer = Buffer.from(shell.vfs.readFile(path));
+			const path = cwd === "/" ? `/${file}` : `${cwd}/${file}`;
+			const buffer = shell.vfs.readFileRaw(path);
 			// console.log(buffer)
 			switch (args[0]) {
 				case "encode": {
