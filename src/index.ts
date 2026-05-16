@@ -1,5 +1,4 @@
-import * as fs from "node:fs";
-import { decodePngToBinary, encodeBinaryToPng, listFilesInPng } from "roxify";
+import { decodePngToBinary, encodeBinaryToPng, hasPassphraseInPng, listFilesInPng } from "roxify";
 import type { VirtualShell } from "typescript-virtual-container";
 
 export function attachRoxifyToShell(shell: VirtualShell) {
@@ -72,9 +71,8 @@ Run "npx rox help" for this message.
 								"Error: No input file specified. Usage: roxify encode <input>... [output]",
 						};
 					}
-					const encodedBuffer = await encodeBinaryToPng(buffer);
-					const finalfilePath = `${cwd}/${file}.png`;
-					// console.log(finalfilePath)
+					const encodedBuffer = await encodeBinaryToPng(buffer, { name: file });
+					const finalfilePath = `${cwd === "/" ? "" : cwd}/${file}.png`;
 					shell.vfs.writeFile(finalfilePath, encodedBuffer);
 					return {
 						exitCode: 0,
@@ -90,10 +88,12 @@ Run "npx rox help" for this message.
 						};
 					}
 					const decodedBuffer = await decodePngToBinary(buffer);
-					shell.vfs.writeFile(`${file.split(".png")[0]}`, decodedBuffer.buf!);
+					const outName = decodedBuffer.meta?.name ?? file.replace(/\.png$/, "");
+					const outPath = `${cwd === "/" ? "" : cwd}/${outName}`;
+					shell.vfs.writeFile(outPath, decodedBuffer.buf!);
 					return {
 						exitCode: 0,
-						stdout: `Decoded ${file}...`,
+						stdout: `Decoded ${file} → ${outName}`,
 					};
 				}
 				case "list": {
@@ -104,22 +104,29 @@ Run "npx rox help" for this message.
 								"Error: No input file specified. Usage: roxify list <input>",
 						};
 					}
-					const buffer = fs.readFileSync(file!);
-					const list = await listFilesInPng(buffer)!;
+					const list = await listFilesInPng(buffer);
+					if (!list) {
+						return { exitCode: 1, stdout: `No file list found in ${file}` };
+					}
 					const output = [`Files in ${file}:`];
-					(list as string[]).forEach((file) => {
-						output.push(`- ${file}`);
+					(list as Array<string | { name: string; size: number }>).forEach((entry) => {
+						if (typeof entry === "string") output.push(`- ${entry}`);
+						else output.push(`- ${entry.name} (${entry.size} bytes)`);
 					});
 					return {
 						exitCode: 0,
 						stdout: output.join("\n"),
 					};
 				}
-				case "havepassphrase":
+				case "havepassphrase": {
+					const hasPass = await hasPassphraseInPng(buffer);
 					return {
 						exitCode: 0,
-						stdout: `Checking if ${file} requires a passphrase... (not really, this is just a demo command)`,
+						stdout: hasPass
+							? `${file} requires a passphrase`
+							: `${file} does not require a passphrase`,
 					};
+				}
 			}
 		}
 
