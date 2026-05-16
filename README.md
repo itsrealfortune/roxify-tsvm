@@ -9,10 +9,10 @@ import { roxifyCommand } from "roxify-tsvm";
 import { VirtualShell } from "typescript-virtual-container";
 
 const shell = new VirtualShell({ /* ... */ });
-shell.registerModule(roxifyCommand);
+shell.addCommand("roxify", ["<subcommand>", "<args...>"], roxifyCommand.run);
 ```
 
-## Usage
+## Usage (in VM)
 
 ```
 roxify <command> <file>
