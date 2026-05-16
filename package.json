@@ -55,9 +55,11 @@
 		"roxify": "^1.16.9"
 	},
 	"pnpm": {
+		"overrides": {
+			"typescript-virtual-container>typescript": "^6.0.3"
+		},
 		"onlyBuiltDependencies": [
 			"cpu-features",
-			"esbuild",
 			"roxify",
 			"ssh2",
 			"typescript-virtual-container"
