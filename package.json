@@ -53,5 +53,14 @@
 	},
 	"dependencies": {
 		"roxify": "^1.16.9"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"cpu-features",
+			"esbuild",
+			"roxify",
+			"ssh2",
+			"typescript-virtual-container"
+		]
 	}
 }
