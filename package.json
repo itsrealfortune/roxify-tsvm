@@ -1,12 +1,20 @@
 {
-	"name": "module-template",
-	"version": "1.0.1",
+	"name": "roxify-tsvm",
+	"version": "1.0.0",
 	"license": "MIT",
-	"description": "Template de module TypeScript publiable sur npm avec build, checks de qualite et pipeline GitHub Actions.",
+	"description": "roxify command for typescript-virtual-container virtual shells — encode and decode files as PNG steganography archives.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/itsrealfortune/module-template"
+		"url": "https://github.com/itsrealfortune/roxify-tsvm"
 	},
+	"keywords": [
+		"roxify",
+		"steganography",
+		"png",
+		"typescript-virtual-container",
+		"virtual-shell",
+		"shell-command"
+	],
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -24,35 +32,26 @@
 	],
 	"type": "module",
 	"scripts": {
-		"prepack": "npm run build",
+		"build": "tsc --project tsconfig.json",
 		"build:watch": "tsc --watch",
 		"typecheck": "tsc --noEmit",
-		"example": "ts-node --esm examples/example.ts",
 		"format": "bunx --bun @biomejs/biome format --write ./src",
 		"check": "bunx --bun @biomejs/biome check ./src",
 		"lint": "bunx --bun @biomejs/biome lint ./src",
 		"lint:write": "bunx --bun @biomejs/biome lint --write ./src",
-		"test": "bunx --bun @biomejs/biome test ./src",
-		"build": "tsc --project tsconfig.json",
-		"deploy:npm": "npm publish --access public",
+		"deploy:npm": "bun publish --access public",
 		"publish-package": "bash ./scripts/publish-package.sh"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.15",
-		"@eslint/js": "^10.0.1",
 		"@types/bun": "^1.3.14",
 		"@types/node": "^25.8.0",
-		"eslint": "^10.4.0",
-		"globals": "^17.6.0",
-		"jiti": "^2.7.0",
-		"tsup": "^8.5.1",
-		"typescript-eslint": "^8.59.3"
-	},
-	"peerDependencies": {
 		"typescript": "^6.0.3"
 	},
-	"dependencies": {
-		"roxify": "^1.16.9",
+	"peerDependencies": {
 		"typescript-virtual-container": "^1.5.10"
+	},
+	"dependencies": {
+		"roxify": "^1.16.9"
 	}
 }
