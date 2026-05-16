@@ -3,6 +3,7 @@ import { basename } from "node:path";
 import { stdin, stdout } from "node:process";
 import { createInterface, type Interface } from "node:readline";
 
+import { attachRoxifyToShell } from ".";
 import { getCommandNames } from "../node_modules/typescript-virtual-container/dist/commands/registry";
 import { applyUserSwitch, makeDefaultEnv, runCommand, userHome } from "../node_modules/typescript-virtual-container/dist/commands/runtime";
 import { NanoEditor } from "../node_modules/typescript-virtual-container/dist/modules/nanoEditor";
@@ -162,6 +163,11 @@ virtualShell.addCommand("demo", [], () => ({
 	stdout: "This is a demo command. It does nothing useful.",
 	exitCode: 0,
 }));
+
+
+// ts-ignore because attachRoxifyToShell's type is currently incompatible with VirtualShell, but we know it will work at runtime
+attachRoxifyToShell(virtualShell);
+
 
 // ── Main shell ────────────────────────────────────────────────────────────────
 
