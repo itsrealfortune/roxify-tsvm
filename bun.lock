@@ -5,7 +5,7 @@
     "": {
       "name": "module-template",
       "dependencies": {
-        "roxify": "^1.16.9",
+        "roxify": "^1.16.10",
       },
       "devDependencies": {
         "@biomejs/biome": "^2.4.15",
@@ -14,7 +14,7 @@
         "typescript": "^6.0.3",
       },
       "peerDependencies": {
-        "typescript-virtual-container": "^1.5.10",
+        "typescript-virtual-container": "^1.5.11",
       },
     },
   },
@@ -55,7 +55,7 @@
 
     "nan": ["nan@2.26.2", "", {}, "sha512-0tTvBTYkt3tdGw22nrAy50x7gpbGCCFH3AFcyS5WiUu7Eu4vWlri1woE6qHBSfy11vksDqkiwjOnlR7WV8G1Hw=="],
 
-    "roxify": ["roxify@1.16.9", "", { "bin": { "rox": "dist/cli.js", "roxify": "dist/cli.js" } }, "sha512-YyZUDXtZgpc+7fp5FNe3I4PdR9M+4qCV1K2jNo6aIvL5vv6rJZzTZwvisP0b2bGGHvfPdluHquGMRGCMlD9RyQ=="],
+    "roxify": ["roxify@1.16.10", "", { "bin": { "rox": "dist/cli.js", "roxify": "dist/cli.js" } }, "sha512-7HLlyyVV0yqi2KfBykiyoh2S5LcC97alWJ93PPubuB1mfFM8XH6ka/XoTvwpdBw3eFf7/iGtgauFKlVdZPxduw=="],
 
     "safer-buffer": ["safer-buffer@2.1.2", "", {}, "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="],
 
@@ -65,7 +65,7 @@
 
     "typescript": ["typescript@6.0.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="],
 
-    "typescript-virtual-container": ["typescript-virtual-container@1.5.10", "", { "dependencies": { "fflate": "^0.8.2", "ssh2": "^1.17.0" }, "peerDependencies": { "typescript": "^5" } }, "sha512-XamJySLDyrBW/pYeJMdFEi00qtptWr92Ayuq5iwPjHUy0/ADyTNlE7/iGlj6HaXa7UX8HsTFuEELpTYy7jmg8w=="],
+    "typescript-virtual-container": ["typescript-virtual-container@1.5.11", "", { "dependencies": { "fflate": "^0.8.2", "ssh2": "^1.17.0" }, "peerDependencies": { "typescript": "^5" } }, "sha512-d0f6xcWB6fWD1N0dCJxi55FNGRCoplFuOIxMhMIrRnpsbwY8wpF4TQEYUH/5tPeIertnZRHl/QYfW41gDH9zUw=="],
 
     "undici-types": ["undici-types@7.24.6", "", {}, "sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg=="],
 
