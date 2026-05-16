@@ -25,5 +25,5 @@ jobs:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
       - run: pnpm install
-      - run: pnpm run build --if-present
+      - run: pnpm run build
       - run: pnpm publish
