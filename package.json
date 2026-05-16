@@ -1,6 +1,6 @@
 {
 	"name": "roxify-tsvm",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"description": "roxify command for typescript-virtual-container virtual shells — encode and decode files as PNG steganography archives.",
 	"repository": {
