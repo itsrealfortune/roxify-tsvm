@@ -16,7 +16,7 @@ importers:
         version: 1.16.9
       typescript-virtual-container:
         specifier: ^1.5.10
-        version: 1.5.10(typescript@6.0.3)
+        version: 1.5.11(typescript@6.0.3)
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.4.15
@@ -130,8 +130,8 @@ packages:
   tweetnacl@0.14.5:
     resolution: {integrity: sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==}
 
-  typescript-virtual-container@1.5.10:
-    resolution: {integrity: sha512-XamJySLDyrBW/pYeJMdFEi00qtptWr92Ayuq5iwPjHUy0/ADyTNlE7/iGlj6HaXa7UX8HsTFuEELpTYy7jmg8w==}
+  typescript-virtual-container@1.5.11:
+    resolution: {integrity: sha512-d0f6xcWB6fWD1N0dCJxi55FNGRCoplFuOIxMhMIrRnpsbwY8wpF4TQEYUH/5tPeIertnZRHl/QYfW41gDH9zUw==}
     peerDependencies:
       typescript: ^6.0.3
 
@@ -228,7 +228,7 @@ snapshots:
 
   tweetnacl@0.14.5: {}
 
-  typescript-virtual-container@1.5.10(typescript@6.0.3):
+  typescript-virtual-container@1.5.11(typescript@6.0.3):
     dependencies:
       fflate: 0.8.3
       ssh2: 1.17.0
