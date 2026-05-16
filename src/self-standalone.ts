@@ -3,7 +3,7 @@ import { basename } from "node:path";
 import { stdin, stdout } from "node:process";
 import { createInterface, type Interface } from "node:readline";
 
-import { attachRoxifyToShell } from ".";
+import { roxifyCommand } from ".";
 import { getCommandNames } from "../node_modules/typescript-virtual-container/dist/commands/registry";
 import { applyUserSwitch, makeDefaultEnv, runCommand, userHome } from "../node_modules/typescript-virtual-container/dist/commands/runtime";
 import { NanoEditor } from "../node_modules/typescript-virtual-container/dist/modules/nanoEditor";
@@ -164,10 +164,7 @@ virtualShell.addCommand("demo", [], () => ({
 	exitCode: 0,
 }));
 
-
-// ts-ignore because attachRoxifyToShell's type is currently incompatible with VirtualShell, but we know it will work at runtime
-// @ts-expect-error: Type mismatch due to differences in VirtualShell types, but compatible at runtime
-attachRoxifyToShell(virtualShell as unknown as VirtualShell);
+virtualShell.addCommand("roxify", ["<subcommand>", "<args...>"], roxifyCommand.run);
 
 
 // ── Main shell ────────────────────────────────────────────────────────────────
@@ -391,8 +388,8 @@ async function runReadlineShell(): Promise<void> {
 			let promptText = challenge.prompt;
 			while (true) {
 				const typed = await askHiddenQuestion(rl, promptText);
-				// @ts-expect-error: Type mismatch due to differences in VirtualShell types, but compatible at runtime
-				const step = await challenge.onPassword(typed, virtualShell as unknown as VirtualShell);
+				// @ts-expect-error - result can be CommandResult or null, but handleCommandResult only accepts CommandResult. This is a bit awkward but avoids duplicating the sudo password logic inside handleCommandResult.
+				const step = await challenge.onPassword(typed, virtualShell);
 				if (step.result === null) {
 					promptText = step.nextPrompt ?? promptText;
 					continue;
