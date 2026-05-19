@@ -13,7 +13,7 @@ importers:
     dependencies:
       roxify:
         specifier: ^1.16.10
-        version: 1.16.10
+        version: 1.16.14
       typescript-virtual-container:
         specifier: ^1.5.11
         version: 1.5.11(typescript@6.0.3)
@@ -26,7 +26,7 @@ importers:
         version: 1.3.14
       '@types/node':
         specifier: ^25.8.0
-        version: 25.8.0
+        version: 25.9.0
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -89,8 +89,8 @@ packages:
   '@types/bun@1.3.14':
     resolution: {integrity: sha512-h1hFqFVcvAvD9j9K7ZW7vd82aSA+rTdznZa+5bwvCwqSB1jmmfLcbIWhOLx1/+boy/xmjgCs/OMUL8hRJSmnPw==}
 
-  '@types/node@25.8.0':
-    resolution: {integrity: sha512-TCFSk8IZh+iLX1xtksoBVtdmgL+1IX0fC9BeU4QqFSuNdN/K+HUlhqOzEmSYYpZUVsLYcPqc9KX+60iDuninSQ==}
+  '@types/node@25.9.0':
+    resolution: {integrity: sha512-AOQwYUNolgy3VosiRqXrACUXTN8nJUtPl7FJXMqZVyxiiCLhQuG3jXKvCS1ALr+Y2OmZhzzLVlYPEqJaiqkaJQ==}
 
   asn1@0.2.6:
     resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==}
@@ -115,8 +115,8 @@ packages:
   nan@2.27.0:
     resolution: {integrity: sha512-hC+0LidcL3XE4rp1C4H54KujgXKzbfyTngZTwBByQxsOxCEKZT0MPQ4hOKUH2jU1OYstqdDH4onyHPDzcV0XdQ==}
 
-  roxify@1.16.10:
-    resolution: {integrity: sha512-7HLlyyVV0yqi2KfBykiyoh2S5LcC97alWJ93PPubuB1mfFM8XH6ka/XoTvwpdBw3eFf7/iGtgauFKlVdZPxduw==}
+  roxify@1.16.14:
+    resolution: {integrity: sha512-5MfHEc1+06vhsQ4oUVOLbtDd8KCnNzVbAYStCMUQRFbYf7RmbDH1RsgiMB5XQPGYuVxv2ELFEABg+wK3i3MboQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -184,7 +184,7 @@ snapshots:
     dependencies:
       bun-types: 1.3.14
 
-  '@types/node@25.8.0':
+  '@types/node@25.9.0':
     dependencies:
       undici-types: 7.24.6
 
@@ -201,7 +201,7 @@ snapshots:
 
   bun-types@1.3.14:
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.0
 
   cpu-features@0.0.10:
     dependencies:
@@ -214,7 +214,7 @@ snapshots:
   nan@2.27.0:
     optional: true
 
-  roxify@1.16.10: {}
+  roxify@1.16.14: {}
 
   safer-buffer@2.1.2: {}
 
